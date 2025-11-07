@@ -46,10 +46,9 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(180deg, transparent, hsl(200 85% 12% / 0.6));
     --gradient-hero-right: linear-gradient(135deg, hsl(18 90% 70%), hsl(340 85% 75%), hsl(320 75% 85%));
     
-    --hero-yellow: 45 100% 75%;
-    --hero-pink: 330 85% 75%;
-    --hero-pink-dark: 330 85% 65%;
-    --hero-white: 0 0% 98%;
+    --hero-teal: 180 45% 35%;
+    --hero-coral: 12 85% 70%;
+    --hero-pink: 340 80% 80%;
     
     --shadow-soft: 0 4px 24px -2px hsl(200 85% 25% / 0.08);
     --shadow-medium: 0 8px 32px -4px hsl(200 85% 25% / 0.12);

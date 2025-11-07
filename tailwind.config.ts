@@ -14,8 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        heading: ['Raleway', 'sans-serif'],
+        sans: ['Sora', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -47,10 +46,9 @@ export default {
           DEFAULT: "hsl(var(--coral))",
           foreground: "hsl(var(--coral-foreground))",
         },
-        "hero-yellow": "hsl(var(--hero-yellow))",
+        "hero-teal": "hsl(var(--hero-teal))",
+        "hero-coral": "hsl(var(--hero-coral))",
         "hero-pink": "hsl(var(--hero-pink))",
-        "hero-pink-dark": "hsl(var(--hero-pink-dark))",
-        "hero-white": "hsl(var(--hero-white))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

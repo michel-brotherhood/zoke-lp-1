@@ -1,178 +1,173 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Menu } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { ChevronDown, Sparkles, Star } from "lucide-react";
 import logo from "@/assets/logo.png";
-import heroImage from "@/assets/hero-summer.jpg";
+import { useState } from "react";
 
 const Hero = () => {
+  const [formData, setFormData] = useState({ name: "", email: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = `Olá! Meu nome é ${formData.name}. Gostaria de conhecer mais sobre a Zoke.`;
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=5521971006480&text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
-    <section id="home" className="relative min-h-screen bg-hero-yellow overflow-hidden flex items-center justify-center px-4 md:px-8 py-8">
-      {/* Decorative yellow leaves - top left */}
-      <div className="absolute top-0 left-0 w-64 h-64 opacity-40">
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          {[...Array(7)].map((_, i) => (
-            <path
-              key={i}
-              d={`M ${100 - i * 15} 0 Q ${50 - i * 20} ${50 + i * 10} ${100 - i * 15} ${100 + i * 15}`}
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="12"
-              className="text-hero-yellow"
-              style={{ opacity: 0.6 - i * 0.08 }}
-            />
-          ))}
-        </svg>
+    <section id="home" className="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
+      {/* Left Side - Video with decorative elements */}
+      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen bg-hero-teal overflow-hidden order-1 md:order-1">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Decorative shapes - matching reference */}
+        {/* Semi-circle gauge top left */}
+        <div className="absolute top-16 left-8 w-28 h-28">
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 rounded-full border-[6px] border-hero-teal opacity-60" 
+                 style={{ 
+                   clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)',
+                   borderStyle: 'dashed'
+                 }}></div>
+            <div className="absolute inset-2 rounded-full border-[6px] border-hero-coral opacity-50" 
+                 style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+          </div>
+        </div>
+        
+        {/* Stars on left side */}
+        <div className="absolute top-[22%] left-6">
+          <Star className="w-7 h-7 text-foreground fill-foreground" />
+        </div>
+        <div className="absolute top-[32%] left-6">
+          <Star className="w-5 h-5 text-foreground fill-foreground" />
+        </div>
+        <div className="absolute top-[48%] left-6">
+          <Star className="w-7 h-7 text-foreground fill-foreground" />
+        </div>
+        
+        {/* Pink rectangles */}
+        <div className="absolute top-36 left-12 w-12 h-20 bg-hero-pink opacity-60 rounded-sm"></div>
+        <div className="absolute bottom-[35%] left-16 w-20 h-12 bg-hero-coral/50 opacity-70 rounded-sm"></div>
+        
+        {/* Large sparkle decoration */}
+        <Sparkles className="absolute top-[38%] left-[28%] w-20 h-20 text-white opacity-50" />
       </div>
 
-      {/* Decorative yellow leaves - bottom right */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 opacity-40">
-        <svg viewBox="0 0 300 300" className="w-full h-full">
-          {[...Array(9)].map((_, i) => (
-            <path
-              key={i}
-              d={`M ${200 + i * 15} 300 Q ${250 + i * 10} ${250 - i * 10} ${200 + i * 15} ${200 - i * 15}`}
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="14"
-              className="text-hero-yellow"
-              style={{ opacity: 0.7 - i * 0.07 }}
-            />
-          ))}
-        </svg>
-      </div>
-
-      {/* Main white card */}
-      <div className="relative w-full max-w-7xl bg-hero-white rounded-[3rem] shadow-2xl overflow-hidden">
-        {/* Navigation */}
-        <nav className="relative z-50 pt-8 px-6 md:px-12">
-          <div className="flex items-center justify-between">
-            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-              <Menu size={28} className="text-foreground" />
-            </button>
-            
-            <div className="hidden md:flex gap-8 lg:gap-12 text-foreground font-medium text-base">
-              <a href="#collections" className="hover:opacity-70 transition-opacity">Shop</a>
-              <a href="#collections" className="hover:opacity-70 transition-opacity">Collections</a>
-              <a href="#contact" className="hover:opacity-70 transition-opacity">Contact</a>
-            </div>
+      {/* Right Side - Content with gradient */}
+      <div className="relative w-full md:w-1/2 bg-gradient-hero-right flex flex-col order-2 md:order-2 min-h-screen">
+        {/* Navigation - integrated into hero */}
+        <nav className="relative z-50 pt-6 px-6 md:px-8">
+          <div className="flex items-center justify-between mb-8">
+            <img src={logo} alt="Zoke Logo" className="h-10 md:h-12" />
+          </div>
+          <div className="hidden md:flex gap-6 lg:gap-8 text-foreground font-medium tracking-wide text-sm">
+            <a href="#home" className="hover:opacity-70 transition-opacity">HOME</a>
+            <a href="#about" className="hover:opacity-70 transition-opacity">ABOUT</a>
+            <a href="#collections" className="hover:opacity-70 transition-opacity">GALLERY</a>
+            <a href="#contact" className="hover:opacity-70 transition-opacity">CONTACT</a>
           </div>
         </nav>
 
-        {/* Content Grid */}
-        <div className="grid md:grid-cols-2 gap-8 px-6 md:px-12 py-12 md:py-16">
-          {/* Left Side - Text Content */}
-          <div className="relative flex flex-col justify-center space-y-6 order-2 md:order-1">
-            {/* Decorative pink leaves - left side */}
-            <div className="absolute -left-8 top-0 w-32 h-32 opacity-30">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                {[...Array(5)].map((_, i) => (
-                  <path
-                    key={i}
-                    d={`M ${50 - i * 8} 0 Q ${20 - i * 5} ${30 + i * 5} ${50 - i * 8} ${60 + i * 8}`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="8"
-                    className="text-hero-pink"
-                    style={{ opacity: 0.5 - i * 0.08 }}
-                  />
-                ))}
-              </svg>
-            </div>
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-8 md:py-12">
+          <p className="text-xs md:text-sm tracking-[0.3em] text-foreground mb-3 md:mb-4 uppercase font-light">
+            Coleção 2025
+          </p>
+          
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-tight">
+            Seja Você,<br />
+            Seja Bonita,<br />
+            <span className="font-light">Seja Zoke</span>
+          </h1>
+          
+          <p className="text-sm md:text-base lg:text-lg text-foreground/80 mb-2 md:mb-3 tracking-wide uppercase font-light">
+            Moda praia e fitness
+          </p>
+          
+          <p className="text-xs md:text-sm lg:text-base text-foreground font-normal mb-6 md:mb-8">
+            Entrega para todo o Brasil 🇧🇷
+          </p>
 
-            {/* Pink dot pattern */}
-            <div className="absolute left-8 top-20 grid grid-cols-3 gap-1.5 opacity-60">
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="w-1.5 h-1.5 rounded-full bg-hero-pink"></div>
-              ))}
-            </div>
-
-            <p className="text-hero-pink-dark font-script text-2xl md:text-3xl italic" style={{ fontFamily: 'cursive' }}>
-              Season collection
-            </p>
-            
-            <div className="space-y-2">
-              <h1 className="font-heading font-extrabold text-6xl md:text-7xl lg:text-8xl text-hero-pink-dark leading-none tracking-tight">
-                SUMMER
-              </h1>
-              <div className="h-1.5 w-64 bg-hero-pink-dark rounded-full"></div>
-            </div>
-            
-            <p className="text-gray-400 text-sm md:text-base max-w-md leading-relaxed">
-              Descubra a coleção de verão Zoke: moda praia exclusiva com design sofisticado, conforto premium e estilo único para você brilhar na praia.
-            </p>
-
-            <div className="pt-4">
-              <Button 
-                className="bg-hero-pink-dark hover:bg-hero-pink-dark/90 text-white px-8 py-6 text-base font-semibold rounded-lg uppercase tracking-wide"
-                onClick={() => window.open('https://api.whatsapp.com/send/?phone=5521971006480&text=Olá!%20Gostaria%20de%20conhecer%20a%20coleção%20de%20verão%20Zoke', '_blank')}
-              >
-                SHOP NOW
-              </Button>
-            </div>
-
-            {/* Bottom left dots */}
-            <div className="absolute left-8 bottom-12 grid grid-cols-3 gap-1.5 opacity-60">
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="w-1.5 h-1.5 rounded-full bg-hero-pink"></div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Side - Image */}
-          <div className="relative order-1 md:order-2">
-            {/* Decorative pink leaves - top right */}
-            <div className="absolute -top-4 right-0 w-40 h-40 opacity-30">
-              <svg viewBox="0 0 120 120" className="w-full h-full">
-                {[...Array(6)].map((_, i) => (
-                  <path
-                    key={i}
-                    d={`M ${70 + i * 8} 0 Q ${100 + i * 5} ${30 + i * 5} ${70 + i * 8} ${60 + i * 8}`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="8"
-                    className="text-hero-pink"
-                    style={{ opacity: 0.5 - i * 0.08 }}
-                  />
-                ))}
-              </svg>
-            </div>
-
-            {/* Pink dot pattern - top right */}
-            <div className="absolute top-16 right-12 grid grid-cols-3 gap-1.5 opacity-60">
-              {[...Array(9)].map((_, i) => (
-                <div key={i} className="w-1.5 h-1.5 rounded-full bg-hero-pink"></div>
-              ))}
-            </div>
-
-            {/* 25% off badge */}
-            <div className="absolute top-8 right-8 text-white text-right z-10">
-              <div className="text-6xl md:text-7xl font-bold leading-none">25<span className="text-4xl align-top">%</span></div>
-              <div className="text-2xl md:text-3xl font-light italic">off</div>
-            </div>
-
-            {/* Yellow circle decoration - top */}
-            <div className="absolute top-16 left-1/3 w-32 h-32 border-4 border-hero-yellow rounded-full opacity-70"></div>
-
-            {/* Yellow circle decoration - bottom */}
-            <div className="absolute bottom-16 left-1/4 w-40 h-40 border-4 border-hero-yellow rounded-full opacity-70"></div>
-
-            {/* Main image with rotated frame effect */}
-            <div className="relative transform rotate-2 mx-auto max-w-md">
-              <div className="bg-gradient-to-br from-hero-pink/40 via-transparent to-hero-yellow/40 rounded-3xl p-1">
-                <img 
-                  src={heroImage} 
-                  alt="Coleção de Verão Zoke" 
-                  className="w-full h-auto rounded-3xl object-cover"
-                />
-              </div>
-            </div>
-          </div>
+          {/* Form - like reference */}
+          <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 max-w-md">
+            <Input
+              type="text"
+              placeholder="NOME"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+              className="bg-white/90 border-2 border-foreground/20 rounded-full px-6 py-3 md:py-4 text-foreground placeholder:text-foreground/60 focus:border-foreground text-sm md:text-base"
+            />
+            <Input
+              type="email"
+              placeholder="EMAIL"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+              className="bg-white/90 border-2 border-foreground/20 rounded-full px-6 py-3 md:py-4 text-foreground placeholder:text-foreground/60 focus:border-foreground text-sm md:text-base"
+            />
+            <Button
+              type="submit"
+              className="w-full bg-foreground text-background hover:bg-foreground/90 rounded-full py-3 md:py-4 text-sm md:text-base font-bold tracking-wider"
+            >
+              CONFIRMAR
+            </Button>
+          </form>
         </div>
+
+        {/* Decorative elements on right side - more like reference */}
+        <div className="absolute top-[18%] right-6">
+          <Star className="w-5 h-5 text-hero-coral fill-hero-coral" />
+        </div>
+        <div className="absolute top-[26%] right-6">
+          <Star className="w-4 h-4 text-hero-coral fill-hero-coral" />
+        </div>
+        <div className="absolute top-[40%] right-6">
+          <Star className="w-5 h-5 text-hero-coral fill-hero-coral" />
+        </div>
+        <div className="absolute top-[58%] right-10">
+          <Star className="w-4 h-4 text-foreground fill-foreground" />
+        </div>
+        <div className="absolute bottom-[28%] right-6">
+          <Star className="w-4 h-4 text-foreground fill-foreground" />
+        </div>
+        <div className="absolute bottom-[35%] right-6">
+          <Star className="w-5 h-5 text-foreground fill-foreground" />
+        </div>
+
+        {/* Dot pattern - vertical alignment like reference */}
+        <div className="absolute right-20 top-[32%] flex flex-col gap-2 opacity-50">
+          {[...Array(10)].map((_, i) => (
+            <div key={i} className="flex gap-2">
+              {[...Array(3)].map((_, j) => (
+                <div key={j} className="w-1 h-1 rounded-full bg-foreground"></div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Circle decoration bottom right */}
+        <div className="absolute bottom-16 right-28 w-36 h-36 rounded-full border-2 border-foreground/30 flex items-center justify-center">
+          <Star className="w-14 h-14 text-foreground fill-foreground" />
+        </div>
+
+        {/* Sparkle bottom right */}
+        <Sparkles className="absolute bottom-[42%] right-[18%] w-12 h-12 text-white opacity-40" />
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - hidden on mobile */}
       <a
         href="#collections"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground animate-bounce z-10"
+        className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground animate-bounce drop-shadow-lg z-10"
         aria-label="Scroll to collections"
       >
         <ChevronDown size={32} />
