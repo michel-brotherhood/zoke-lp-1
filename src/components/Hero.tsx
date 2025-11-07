@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Play } from "lucide-react";
+import { GradientButton } from "@/components/ui/gradient-button";
+import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -22,24 +23,24 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="font-poppins text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-4 md:mb-6 text-white drop-shadow-2xl animate-fade-in leading-tight tracking-wide">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-4 md:mb-6 text-white drop-shadow-2xl animate-fade-in leading-tight tracking-wide">
           Seja Você, Seja Bonita, <span className="text-white font-normal">Seja Zoke</span>
         </h1>
-        <p className="font-poppins text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-white/95 drop-shadow-lg px-4 font-light">
+        <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-white/95 drop-shadow-lg px-4 font-light">
           Moda praia e fitness que valoriza sua beleza natural.<br className="hidden sm:block" />
           <span className="font-normal">Entrega para todo o Brasil 🇧🇷</span>
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-          <Button variant="coral" size="lg" className="w-full sm:w-auto text-lg shadow-2xl font-medium" asChild>
+          <Button variant="hero" size="lg" className="w-full sm:w-auto text-lg shadow-2xl font-medium" asChild>
             <a href="#collections">
               Explorar Coleções
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto text-lg shadow-2xl bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 font-medium" asChild>
+          <GradientButton variant="pink" className="w-full sm:w-auto" asChild>
             <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer">
               Falar com Representante
             </a>
-          </Button>
+          </GradientButton>
         </div>
       </div>
 

@@ -24,11 +24,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-soft" : "bg-white/5 backdrop-blur-md"
-      }`}
-    >
+    <nav className="absolute top-0 left-0 right-0 z-50">
+
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <a href="#home" className="flex items-center">
@@ -41,9 +38,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className={`${
-                  isScrolled ? "text-foreground" : "text-white"
-                } hover:text-accent transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full drop-shadow-sm`}
+                className="text-white hover:text-white/80 transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 hover:after:w-full drop-shadow-sm"
               >
                 {link.name}
               </a>
@@ -52,7 +47,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden ${isScrolled ? "text-foreground" : "text-white"} drop-shadow-sm`}
+            className="md:hidden text-white drop-shadow-sm"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >

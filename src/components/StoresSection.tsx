@@ -19,7 +19,7 @@ const stores = [
     address: "Av. Olegário Maciel, Nº 484",
     neighborhood: "Barra da Tijuca, Rio de Janeiro - RJ",
     hours: "Seg a Sex: 10h às 19h | Sáb: 10h às 17h",
-    whatsapp: null,
+    whatsapp: "5521971006480",
     mapsUrl: "https://www.google.com/maps?q=Av.+Olegário+Maciel,+484+Barra+da+Tijuca",
   },
   {
@@ -88,7 +88,7 @@ const StoresSection = () => {
                       rel="noopener noreferrer"
                     >
                       <Phone className="w-4 h-4 mr-2" />
-                      WhatsApp
+                      Falar com a Zoke
                     </a>
                   </Button>
                 )}
