@@ -46,6 +46,9 @@ export default {
           DEFAULT: "hsl(var(--coral))",
           foreground: "hsl(var(--coral-foreground))",
         },
+        "hero-teal": "hsl(var(--hero-teal))",
+        "hero-coral": "hsl(var(--hero-coral))",
+        "hero-pink": "hsl(var(--hero-pink))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -59,6 +62,7 @@ export default {
         'gradient-ocean': 'var(--gradient-ocean)',
         'gradient-sunset': 'var(--gradient-sunset)',
         'gradient-hero': 'var(--gradient-hero)',
+        'gradient-hero-right': 'var(--gradient-hero-right)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
