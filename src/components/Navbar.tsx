@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-soft" : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-soft" : "bg-white/5 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -41,21 +41,18 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground hover:text-accent transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                className={`${
+                  isScrolled ? "text-foreground" : "text-white"
+                } hover:text-accent transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full drop-shadow-sm`}
               >
                 {link.name}
               </a>
             ))}
-            <Button variant="hero" size="default" asChild>
-              <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className={`md:hidden ${isScrolled ? "text-foreground" : "text-white"} drop-shadow-sm`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -112,7 +109,7 @@ const Navbar = () => {
                 >
                   <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer">
                     <Phone className="w-5 h-5 mr-2" />
-                    Fale Conosco
+                    Falar com Representante
                   </a>
                 </Button>
                 
