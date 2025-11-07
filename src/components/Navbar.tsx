@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,8 +31,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <a href="#home" className="text-2xl font-bold bg-gradient-ocean bg-clip-text text-transparent">
-            ZOKE
+          <a href="#home" className="flex items-center">
+            <img src={logo} alt="Zoke Moda Praia e Fitness" className="h-12 md:h-14" />
           </a>
 
           {/* Desktop Menu */}
@@ -75,7 +76,7 @@ const Navbar = () => {
             <div className="md:hidden fixed inset-0 z-50 flex flex-col bg-gradient-ocean animate-slide-in-right">
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-primary-foreground/20">
-                <span className="text-2xl font-bold text-primary-foreground">ZOKE</span>
+                <img src={logo} alt="Zoke" className="h-12" />
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-primary-foreground hover:bg-primary-foreground/10 rounded-full p-2 transition-colors"
