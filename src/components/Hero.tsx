@@ -20,12 +20,12 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="font-poppins text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-4 md:mb-6 text-primary-foreground drop-shadow-lg animate-fade-in leading-tight tracking-tight">
-          Seja Você, Seja Bonita, <span className="text-accent">Seja Zoke</span>
+        <h1 className="font-poppins text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-4 md:mb-6 text-primary-foreground drop-shadow-lg animate-fade-in leading-tight tracking-wide">
+          Seja Você, Seja Bonita, <span className="text-accent font-normal">Seja Zoke</span>
         </h1>
-        <p className="font-poppins text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-primary-foreground/95 drop-shadow-md px-4 font-medium">
+        <p className="font-poppins text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-primary-foreground/90 drop-shadow-md px-4 font-light">
           Moda praia e fitness que valoriza sua beleza natural.<br className="hidden sm:block" />
-          <span className="text-accent font-semibold">Entrega para todo o Brasil 🇧🇷</span>
+          <span className="text-accent font-normal">Entrega para todo o Brasil 🇧🇷</span>
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
           <Button variant="coral" size="lg" className="w-full sm:w-auto text-lg shadow-elegant" asChild>
