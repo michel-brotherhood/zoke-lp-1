@@ -10,14 +10,14 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
       {/* Left Side - Video with decorative elements */}
-      <div className="relative w-full md:w-1/2 h-[40vh] md:h-screen bg-hero-teal overflow-hidden order-1 md:order-1">
+      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen bg-hero-teal overflow-hidden order-1 md:order-1">
         {/* Background Video */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
@@ -178,7 +178,7 @@ const Hero = () => {
         </div>
 
         {/* Circle decoration bottom right */}
-        <div className="absolute bottom-16 right-28 w-36 h-36 rounded-full border-2 border-foreground/30 flex items-center justify-center">
+        <div className="absolute bottom-16 right-28 w-36 h-36 rounded-full border-2 border-foreground/30 hidden md:flex items-center justify-center">
           <Star className="w-14 h-14 text-foreground fill-foreground" />
         </div>
 
