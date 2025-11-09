@@ -1,23 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { ChevronDown, Sparkles, Star } from "lucide-react";
 import logo from "@/assets/logo.png";
-import { useState } from "react";
 
 const Hero = () => {
-  const [formData, setFormData] = useState({ name: "", email: "" });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `Olá! Meu nome é ${formData.name}. Gostaria de conhecer mais sobre a Zoke.`;
-    const whatsappUrl = `https://api.whatsapp.com/send/?phone=5521971006480&text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
-    <section id="home" className="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
+    <section id="home" className="relative h-screen flex overflow-hidden">
       {/* Left Side - Video with decorative elements */}
-      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen bg-hero-teal overflow-hidden order-1 md:order-1">
+      <div className="relative w-full md:w-1/2 bg-hero-teal overflow-hidden">
         {/* Background Video */}
         <video
           autoPlay
@@ -63,13 +53,13 @@ const Hero = () => {
       </div>
 
       {/* Right Side - Content with gradient */}
-      <div className="relative w-full md:w-1/2 bg-gradient-hero-right flex flex-col order-2 md:order-2 min-h-screen">
+      <div className="relative w-full md:w-1/2 bg-gradient-hero-right flex flex-col">
         {/* Navigation - integrated into hero */}
-        <nav className="relative z-50 pt-6 px-6 md:px-8">
+        <nav className="relative z-50 pt-6 px-8">
           <div className="flex items-center justify-between mb-8">
-            <img src={logo} alt="Zoke Logo" className="h-10 md:h-12" />
+            <img src={logo} alt="Zoke Logo" className="h-12" />
           </div>
-          <div className="hidden md:flex gap-6 lg:gap-8 text-foreground font-medium tracking-wide text-sm">
+          <div className="flex gap-8 text-foreground font-medium tracking-wide text-sm">
             <a href="#home" className="hover:opacity-70 transition-opacity">HOME</a>
             <a href="#about" className="hover:opacity-70 transition-opacity">ABOUT</a>
             <a href="#collections" className="hover:opacity-70 transition-opacity">GALLERY</a>
@@ -78,50 +68,32 @@ const Hero = () => {
         </nav>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-8 md:py-12">
-          <p className="text-xs md:text-sm tracking-[0.3em] text-foreground mb-3 md:mb-4 uppercase font-light">
+        <div className="flex-1 flex flex-col justify-center px-8 md:px-16 py-12">
+          <p className="text-sm tracking-[0.3em] text-foreground mb-4 uppercase font-light">
             Coleção 2025
           </p>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight">
             Seja Você,<br />
             Seja Bonita,<br />
             <span className="font-light">Seja Zoke</span>
           </h1>
           
-          <p className="text-sm md:text-base lg:text-lg text-foreground/80 mb-2 md:mb-3 tracking-wide uppercase font-light">
+          <p className="text-base md:text-lg text-foreground/80 mb-3 tracking-wide uppercase font-light">
             Moda praia e fitness
           </p>
           
-          <p className="text-xs md:text-sm lg:text-base text-foreground font-normal mb-6 md:mb-8">
+          <p className="text-sm md:text-base text-foreground font-normal mb-8">
             Entrega para todo o Brasil 🇧🇷
           </p>
 
-          {/* Form - like reference */}
-          <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 max-w-md">
-            <Input
-              type="text"
-              placeholder="NOME"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              required
-              className="bg-white/90 border-2 border-foreground/20 rounded-full px-6 py-3 md:py-4 text-foreground placeholder:text-foreground/60 focus:border-foreground text-sm md:text-base"
-            />
-            <Input
-              type="email"
-              placeholder="EMAIL"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              required
-              className="bg-white/90 border-2 border-foreground/20 rounded-full px-6 py-3 md:py-4 text-foreground placeholder:text-foreground/60 focus:border-foreground text-sm md:text-base"
-            />
-            <Button
-              type="submit"
-              className="w-full bg-foreground text-background hover:bg-foreground/90 rounded-full py-3 md:py-4 text-sm md:text-base font-bold tracking-wider"
-            >
-              CONFIRMAR
-            </Button>
-          </form>
+          <div className="flex justify-start">
+            <GradientButton variant="pink" asChild>
+              <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer">
+                Falar com Representante
+              </a>
+            </GradientButton>
+          </div>
         </div>
 
         {/* Decorative elements on right side - more like reference */}
@@ -164,10 +136,10 @@ const Hero = () => {
         <Sparkles className="absolute bottom-[42%] right-[18%] w-12 h-12 text-white opacity-40" />
       </div>
 
-      {/* Scroll Indicator - hidden on mobile */}
+      {/* Scroll Indicator */}
       <a
         href="#collections"
-        className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground animate-bounce drop-shadow-lg z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground animate-bounce drop-shadow-lg z-10"
         aria-label="Scroll to collections"
       >
         <ChevronDown size={32} />
