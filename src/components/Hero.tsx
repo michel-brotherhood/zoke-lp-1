@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { ChevronDown, Sparkles, Star } from "lucide-react";
+import { ChevronDown, Sparkles, Star, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Hero = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <section id="home" className="relative h-screen flex overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
       {/* Left Side - Video with decorative elements */}
-      <div className="relative w-full md:w-1/2 bg-hero-teal overflow-hidden">
+      <div className="relative w-full md:w-1/2 h-[40vh] md:h-screen bg-hero-teal overflow-hidden order-1 md:order-1">
         {/* Background Video */}
         <video
           autoPlay
@@ -53,43 +56,90 @@ const Hero = () => {
       </div>
 
       {/* Right Side - Content with gradient */}
-      <div className="relative w-full md:w-1/2 bg-gradient-hero-right flex flex-col">
+      <div className="relative w-full md:w-1/2 min-h-[60vh] md:h-screen bg-gradient-hero-right flex flex-col order-2 md:order-2">
         {/* Navigation - integrated into hero */}
-        <nav className="relative z-50 pt-6 px-8">
-          <div className="flex items-center justify-between mb-8">
-            <img src={logo} alt="Zoke Logo" className="h-12" />
+        <nav className="relative z-50 pt-4 md:pt-6 px-4 md:px-8">
+          <div className="flex items-center justify-between mb-4 md:mb-8">
+            <img src={logo} alt="Zoke Logo" className="h-10 md:h-12" />
+            
+            {/* Mobile menu button */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-foreground hover:opacity-70 transition-opacity"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-          <div className="flex gap-8 text-foreground font-medium tracking-wide text-sm">
-            <a href="#home" className="hover:opacity-70 transition-opacity">HOME</a>
-            <a href="#about" className="hover:opacity-70 transition-opacity">ABOUT</a>
-            <a href="#collections" className="hover:opacity-70 transition-opacity">GALLERY</a>
-            <a href="#contact" className="hover:opacity-70 transition-opacity">CONTACT</a>
+          
+          {/* Desktop menu */}
+          <div className="hidden md:flex gap-8 text-foreground font-medium tracking-wide text-sm">
+            <a href="#home" className="hover:opacity-70 transition-opacity">INÍCIO</a>
+            <a href="#about" className="hover:opacity-70 transition-opacity">SOBRE</a>
+            <a href="#collections" className="hover:opacity-70 transition-opacity">GALERIA</a>
+            <a href="#contact" className="hover:opacity-70 transition-opacity">CONTATO</a>
           </div>
+          
+          {/* Mobile menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg">
+              <div className="flex flex-col gap-4 p-4">
+                <a 
+                  href="#home" 
+                  className="text-foreground font-medium hover:opacity-70 transition-opacity"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  INÍCIO
+                </a>
+                <a 
+                  href="#about" 
+                  className="text-foreground font-medium hover:opacity-70 transition-opacity"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  SOBRE
+                </a>
+                <a 
+                  href="#collections" 
+                  className="text-foreground font-medium hover:opacity-70 transition-opacity"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  GALERIA
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-foreground font-medium hover:opacity-70 transition-opacity"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  CONTATO
+                </a>
+              </div>
+            </div>
+          )}
         </nav>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col justify-center px-8 md:px-16 py-12">
-          <p className="text-sm tracking-[0.3em] text-foreground mb-4 uppercase font-light">
+        <div className="flex-1 flex flex-col justify-center px-4 md:px-8 lg:px-16 py-8 md:py-12">
+          <p className="text-xs md:text-sm tracking-[0.3em] text-foreground mb-3 md:mb-4 uppercase font-light">
             Coleção 2025
           </p>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-tight">
             Seja Você,<br />
             Seja Bonita,<br />
             <span className="font-light">Seja Zoke</span>
           </h1>
           
-          <p className="text-base md:text-lg text-foreground/80 mb-3 tracking-wide uppercase font-light">
+          <p className="text-sm md:text-base lg:text-lg text-foreground/80 mb-2 md:mb-3 tracking-wide uppercase font-light">
             Moda praia e fitness
           </p>
           
-          <p className="text-sm md:text-base text-foreground font-normal mb-8">
+          <p className="text-xs md:text-sm lg:text-base text-foreground font-normal mb-6 md:mb-8">
             Entrega para todo o Brasil 🇧🇷
           </p>
 
           <div className="flex justify-start">
             <GradientButton variant="pink" asChild>
-              <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer">
+              <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base">
                 Falar com Representante
               </a>
             </GradientButton>
@@ -139,10 +189,10 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <a
         href="#collections"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground animate-bounce drop-shadow-lg z-10"
-        aria-label="Scroll to collections"
+        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-foreground animate-bounce drop-shadow-lg z-10"
+        aria-label="Scroll para coleções"
       >
-        <ChevronDown size={32} />
+        <ChevronDown className="w-6 h-6 md:w-8 md:h-8" />
       </a>
     </section>
   );
