@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import BrandSection from "@/components/BrandSection";
 import Collections from "@/components/Collections";
 import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
@@ -14,6 +15,7 @@ const Index = () => {
     <div className="min-h-screen scroll-smooth">
       <Navbar />
       <Hero />
+      <BrandSection />
       <Collections />
       <About />
       <Testimonials />
