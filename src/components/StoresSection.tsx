@@ -1,5 +1,6 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import zokeHeroBrand from "@/assets/zoke-hero-brand.webp";
 
 const stores = [
   {
@@ -36,13 +37,20 @@ const stores = [
 
 const StoresSection = () => {
   return (
-    <section id="stores" className="py-12 md:py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section 
+      id="stores" 
+      className="py-12 md:py-20 relative bg-cover bg-center"
+      style={{ backgroundImage: `url(${zokeHeroBrand})` }}
+    >
+      {/* Overlay sombreado */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground animate-fade-in">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-white animate-fade-in">
             Nossas Lojas
           </h2>
-          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in px-4">
+          <p className="text-base md:text-xl text-white/90 max-w-2xl mx-auto animate-fade-in px-4">
             Visite uma de nossas lojas no Rio de Janeiro e conheça nossas coleções pessoalmente
           </p>
         </div>
@@ -51,7 +59,7 @@ const StoresSection = () => {
           {stores.map((store, index) => (
             <div
               key={store.id}
-              className="bg-card rounded-lg p-6 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+              className="bg-white/95 backdrop-blur-sm rounded-lg p-6 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <h3 className="text-xl font-bold mb-2 text-foreground">{store.name}</h3>
