@@ -78,11 +78,14 @@ const productLines: ProductLine[] = [
 
 const SummerCollection = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
   const { ref, isVisible } = useScrollAnimation();
 
   const filteredLines = selectedCategory
     ? productLines.filter((line) => line.category === selectedCategory)
     : productLines;
+
+  const displayedLines = showAll ? filteredLines : filteredLines.slice(0, 6);
 
   return (
     <section 
@@ -109,11 +112,14 @@ const SummerCollection = () => {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-3 mb-12 max-w-6xl mx-auto">
           <Badge
             variant={selectedCategory === null ? "default" : "outline"}
-            className="cursor-pointer px-4 py-2 text-sm transition-all duration-300 hover:scale-105"
-            onClick={() => setSelectedCategory(null)}
+            className="cursor-pointer px-6 py-3 text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 hover:shadow-medium rounded-full"
+            onClick={() => {
+              setSelectedCategory(null);
+              setShowAll(false);
+            }}
           >
             Todos
           </Badge>
@@ -121,16 +127,19 @@ const SummerCollection = () => {
             <Badge
               key={line.category}
               variant={selectedCategory === line.category ? "default" : "outline"}
-              className="cursor-pointer px-4 py-2 text-sm transition-all duration-300 hover:scale-105"
-              onClick={() => setSelectedCategory(line.category)}
+              className="cursor-pointer px-6 py-3 text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 hover:shadow-medium rounded-full"
+              onClick={() => {
+                setSelectedCategory(line.category);
+                setShowAll(false);
+              }}
             >
               {line.category}
             </Badge>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12">
-          {filteredLines.map((line, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto mb-12">
+          {displayedLines.map((line, index) => (
             <div
               key={line.category}
               className="relative overflow-hidden rounded-2xl shadow-medium hover:shadow-strong transition-all duration-500 hover:-translate-y-2 animate-fade-in group bg-card border border-border/50"
@@ -172,16 +181,33 @@ const SummerCollection = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <a href="#collections">
+        {filteredLines.length > 6 && !showAll && (
+          <div className="text-center">
             <Button 
               size="lg" 
+              onClick={() => setShowAll(true)}
               className="bg-gradient-sunset hover:shadow-glow text-white text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full shadow-medium hover:shadow-strong transition-all duration-500 hover:scale-105"
             >
-              VER TODOS OS MODELOS DE BIQUÍNI
+              VER MAIS MODELOS
             </Button>
-          </a>
-        </div>
+          </div>
+        )}
+        
+        {showAll && (
+          <div className="text-center">
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => {
+                setShowAll(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full transition-all duration-500 hover:scale-105"
+            >
+              VER MENOS
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
