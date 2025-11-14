@@ -3,50 +3,50 @@ import { CheckCircle2, TrendingUp, Palette, Droplet, Layers, MapPin } from "luci
 const features = [
   {
     icon: CheckCircle2,
-    title: "Conforto que dura o dia inteiro",
-    description: "Nada de ficar ajustando alça a cada 5 minutos. A modelagem foi pensada pra você curtir o dia sem neura."
+    title: "Qualidade Premium",
+    description: "Tecidos nobres com resistência ao cloro, água salgada e proteção UV 50+",
   },
   {
     icon: TrendingUp,
-    title: "Modelagens inteligentes",
-    description: "Cortes que valorizam o que você quer mostrar e dão segurança onde você quer segurar mais."
+    title: "Fit Perfeito",
+    description: "Modelagem exclusiva que valoriza todos os tipos de corpo com muito conforto",
   },
   {
     icon: Palette,
-    title: "Mix & match de verdade",
-    description: "Combine tops e calcinhas como quiser: cores, tamanhos e modelos independentes pra montar o seu conjunto ideal."
+    title: "Design Único",
+    description: "Estampas autorais e cores vibrantes desenvolvidas por nosso time criativo",
   },
   {
     icon: Droplet,
-    title: "Tecidos agradáveis ao toque",
-    description: "Texturas gostosas, que secam rápido e não ficam 'pesadas' depois do mergulho."
+    title: "Secagem Rápida",
+    description: "Tecnologia de tecido que seca rapidamente, perfeito para o dia a dia na praia",
   },
   {
     icon: Layers,
-    title: "Peças versáteis (praia → cidade)",
-    description: "Top que vira cropped, saída de praia que funciona como vestido, chemise que vai do quiosque ao restaurante."
+    title: "Mix & Match",
+    description: "Tops e calcinhas vendidos separadamente para você montar o biquíni ideal",
   },
   {
     icon: MapPin,
-    title: "Estilo carioca na veia",
-    description: "Cores, recortes e estampas com cara de sol, mar e fim de tarde na orla do Rio."
-  }
+    title: "100% Nacional",
+    description: "Produção brasileira com valorização da mão de obra local e sustentável",
+  },
 ];
 
 const WhyChooseZoke = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-antiflash-white to-light-cyan relative overflow-hidden">
-      {/* Decorative parallax elements */}
-      <div className="absolute top-10 right-20 w-52 h-52 bg-orange-wheel/10 rounded-full blur-3xl parallax-slow" />
-      <div className="absolute bottom-20 left-20 w-64 h-64 bg-robin-egg-blue/10 rounded-full blur-3xl parallax-slower" />
+    <section className="py-16 md:py-24 bg-gradient-soft relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-10 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl parallax-slow" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl parallax-slower" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16 parallax-text">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-            Por que escolher biquínis Zoke neste verão?
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+            Por que escolher Zoke?
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-            Não é "só mais um biquíni". É a peça que vai te acompanhar em todos os rolês de sol.
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            Cada peça Zoke é pensada para você se sentir confiante, confortável e linda em todos os momentos
           </p>
         </div>
 
@@ -56,18 +56,20 @@ const WhyChooseZoke = () => {
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 md:p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+                className="group relative bg-card rounded-2xl p-6 md:p-8 shadow-soft hover:shadow-medium transition-all duration-500 hover:-translate-y-2 border border-border/50"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="mb-4">
-                  <Icon className="w-10 h-10 md:w-12 md:h-12 text-robin-egg-blue" />
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-sunset flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-medium">
+                    <Icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
-                  {feature.title}
-                </h3>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  {feature.description}
-                </p>
               </div>
             );
           })}

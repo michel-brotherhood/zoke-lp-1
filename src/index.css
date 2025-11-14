@@ -52,15 +52,23 @@ All colors MUST be HSL.
     --hero-coral: 28 92% 53%;
     --hero-pink: 20 45% 92%;
     
+    /* Enhanced gradients */
     --gradient-ocean: linear-gradient(135deg, hsl(181 57% 49%), hsl(182 29% 81%));
-    --gradient-sunset: linear-gradient(135deg, hsl(181 57% 49%), hsl(28 92% 53%));
+    --gradient-sunset: linear-gradient(135deg, hsl(28 92% 53%), hsl(20 45% 92%));
     --gradient-hero: linear-gradient(180deg, transparent, hsl(181 10% 20% / 0.6));
     --gradient-hero-right: linear-gradient(135deg, hsl(20 45% 92%) 0%, hsl(29 54% 89%) 50%, hsl(28 67% 82%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(181 57% 97%));
+    --gradient-soft: linear-gradient(to bottom right, hsl(181 57% 49% / 0.05), hsl(28 92% 53% / 0.05));
     
+    /* Enhanced shadows */
     --shadow-soft: 0 4px 24px -2px hsl(181 10% 25% / 0.08);
     --shadow-medium: 0 8px 32px -4px hsl(181 10% 25% / 0.12);
+    --shadow-strong: 0 12px 48px -8px hsl(181 10% 25% / 0.16);
+    --shadow-glow: 0 0 40px hsl(181 57% 49% / 0.2);
     
+    /* Smooth transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   /* Parallax effects */

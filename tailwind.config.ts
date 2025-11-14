@@ -71,10 +71,14 @@ export default {
         'gradient-sunset': 'var(--gradient-sunset)',
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-hero-right': 'var(--gradient-hero-right)',
+        'gradient-card': 'var(--gradient-card)',
+        'gradient-soft': 'var(--gradient-soft)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'medium': 'var(--shadow-medium)',
+        'strong': 'var(--shadow-strong)',
+        'glow': 'var(--shadow-glow)',
       },
       transitionProperty: {
         'smooth': 'var(--transition-smooth)',
