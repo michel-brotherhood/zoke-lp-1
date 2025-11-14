@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const faqs = [
   {
@@ -42,8 +43,16 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="faq" className="py-16 md:py-24 bg-gradient-soft relative overflow-hidden">
+    <section 
+      id="faq"
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`py-16 md:py-24 bg-gradient-soft relative overflow-hidden transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       {/* Decorative elements with parallax effect */}
       <div className="absolute top-20 right-10 w-40 h-40 bg-robin-egg-blue/10 rounded-full blur-3xl parallax-slow" />
       <div className="absolute bottom-32 left-10 w-56 h-56 bg-coral/10 rounded-full blur-3xl parallax-slower" />
