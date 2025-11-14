@@ -8,89 +8,92 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 200 85% 12%;
-
+    --background: 0 0% 95%;
+    --foreground: 181 10% 20%;
     --card: 0 0% 100%;
-    --card-foreground: 200 85% 12%;
-
+    --card-foreground: 181 10% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 200 85% 12%;
-
-    --primary: 0 0% 100%;
-    --primary-foreground: 200 85% 12%;
-
-    --secondary: 35 45% 88%;
-    --secondary-foreground: 200 85% 12%;
-
-    --muted: 35 30% 95%;
-    --muted-foreground: 200 25% 45%;
-
-    --accent: 180 65% 55%;
-    --accent-foreground: 0 0% 100%;
-
-    --coral: 12 85% 65%;
-    --coral-foreground: 0 0% 100%;
-
+    --popover-foreground: 181 10% 20%;
+    --primary: 181 57% 49%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 182 29% 81%;
+    --secondary-foreground: 181 10% 20%;
+    --muted: 177 25% 84%;
+    --muted-foreground: 181 10% 46%;
+    --accent: 28 92% 53%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 35 30% 90%;
-    --input: 35 30% 90%;
-    --ring: 180 65% 55%;
-
-    --radius: 0.75rem;
-
-    --gradient-ocean: linear-gradient(135deg, hsl(180 70% 45%), hsl(35 85% 75%));
-    --gradient-sunset: linear-gradient(135deg, hsl(180 70% 45%), hsl(35 85% 75%));
-    --gradient-hero: linear-gradient(180deg, transparent, hsl(200 85% 12% / 0.6));
-    --gradient-hero-right: linear-gradient(135deg, hsl(18 90% 70%), hsl(340 85% 75%), hsl(320 75% 85%));
+    --destructive-foreground: 0 0% 98%;
+    --border: 182 29% 81%;
+    --input: 182 29% 81%;
+    --ring: 181 57% 49%;
+    --radius: 0.5rem;
+    --chart-1: 28 92% 53%;
+    --chart-2: 181 57% 49%;
+    --chart-3: 28 67% 82%;
+    --chart-4: 182 29% 81%;
+    --chart-5: 177 25% 84%;
     
-    --hero-teal: 180 45% 35%;
-    --hero-coral: 12 85% 70%;
-    --hero-pink: 340 80% 80%;
+    --coral: 28 92% 53%;
+    --coral-foreground: 0 0% 98%;
     
-    --shadow-soft: 0 4px 24px -2px hsl(200 85% 25% / 0.08);
-    --shadow-medium: 0 8px 32px -4px hsl(200 85% 25% / 0.12);
+    /* Brand colors - Zoke palette */
+    --robin-egg-blue: 181 57% 49%;
+    --light-blue: 182 29% 81%;
+    --light-cyan: 177 25% 84%;
+    --antiflash-white: 0 0% 95%;
+    --seashell: 20 45% 92%;
+    --almond: 29 54% 89%;
+    --desert-sand: 28 67% 82%;
+    --orange-wheel: 28 92% 53%;
+    
+    /* Hero colors */
+    --hero-teal: 181 57% 49%;
+    --hero-coral: 28 92% 53%;
+    --hero-pink: 20 45% 92%;
+    
+    --gradient-ocean: linear-gradient(135deg, hsl(181 57% 49%), hsl(182 29% 81%));
+    --gradient-sunset: linear-gradient(135deg, hsl(181 57% 49%), hsl(28 92% 53%));
+    --gradient-hero: linear-gradient(180deg, transparent, hsl(181 10% 20% / 0.6));
+    --gradient-hero-right: linear-gradient(135deg, hsl(20 45% 92%) 0%, hsl(29 54% 89%) 50%, hsl(28 67% 82%) 100%);
+    
+    --shadow-soft: 0 4px 24px -2px hsl(181 10% 25% / 0.08);
+    --shadow-medium: 0 8px 32px -4px hsl(181 10% 25% / 0.12);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 200 85% 8%;
+    --background: 181 20% 12%;
     --foreground: 0 0% 98%;
-
-    --card: 200 65% 12%;
+    --card: 181 20% 15%;
     --card-foreground: 0 0% 98%;
-
-    --popover: 200 65% 12%;
+    --popover: 181 20% 15%;
     --popover-foreground: 0 0% 98%;
-
-    --primary: 200 85% 12%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 200 45% 18%;
+    --primary: 181 57% 49%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 182 20% 25%;
     --secondary-foreground: 0 0% 98%;
-
-    --muted: 200 45% 18%;
-    --muted-foreground: 180 20% 70%;
-
-    --accent: 180 65% 45%;
-    --accent-foreground: 0 0% 100%;
-
-    --coral: 12 75% 60%;
-    --coral-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 50%;
+    --muted: 181 15% 20%;
+    --muted-foreground: 181 10% 65%;
+    --accent: 28 92% 53%;
+    --accent-foreground: 0 0% 98%;
+    --coral: 28 92% 53%;
+    --coral-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 200 45% 18%;
-    --input: 200 45% 18%;
-    --ring: 180 65% 55%;
+    --border: 182 20% 25%;
+    --input: 182 20% 25%;
+    --ring: 181 57% 49%;
+    --chart-1: 28 92% 53%;
+    --chart-2: 181 57% 49%;
+    --chart-3: 28 67% 82%;
+    --chart-4: 182 29% 81%;
+    --chart-5: 177 25% 84%;
     
-    --gradient-ocean: linear-gradient(135deg, hsl(200 75% 25%), hsl(180 65% 35%));
-    --gradient-sunset: linear-gradient(135deg, hsl(180 65% 35%), hsl(35 75% 55%));
-    --gradient-hero: linear-gradient(180deg, transparent, hsl(200 85% 8% / 0.8));
+    --gradient-ocean: linear-gradient(135deg, hsl(181 75% 25%), hsl(182 65% 35%));
+    --gradient-sunset: linear-gradient(135deg, hsl(181 65% 35%), hsl(28 75% 55%));
+    --gradient-hero: linear-gradient(180deg, transparent, hsl(181 85% 8% / 0.8));
   }
 }
 
