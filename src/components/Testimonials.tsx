@@ -48,18 +48,18 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-12 md:py-20 bg-gradient-sunset">
+    <section className="py-12 md:py-20 bg-antiflash-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
           <div className="flex justify-center gap-1 mb-4">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 fill-accent text-accent" />
+              <Star key={i} className="w-6 h-6 fill-orange-wheel text-orange-wheel" />
             ))}
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground">
-            O Que Nossos <span className="text-accent">Clientes Dizem</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-gray-900">
+            O Que Nossos <span className="text-robin-egg-blue">Clientes Dizem</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto">
             Avaliações reais de clientes satisfeitos com nossos produtos e serviços
           </p>
         </div>
@@ -75,29 +75,29 @@ const Testimonials = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {testimonials.map((testimonial) => (
                 <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="p-6 h-full bg-background/80 backdrop-blur-sm border-accent/20 hover:shadow-medium transition-all duration-300">
+                  <Card className="p-6 h-full bg-white border-light-blue hover:shadow-lg hover:border-robin-egg-blue transition-all duration-300">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-ocean flex items-center justify-center text-primary-foreground font-bold text-lg shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-robin-egg-blue to-light-blue flex items-center justify-center text-white font-bold text-lg shrink-0">
                         {testimonial.name.charAt(0)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-foreground">{testimonial.name}</h4>
+                        <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
                         <div className="flex gap-0.5 my-1">
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
                               className={`w-4 h-4 ${
                                 i < testimonial.rating
-                                  ? "fill-accent text-accent"
-                                  : "fill-muted text-muted"
+                                  ? "fill-orange-wheel text-orange-wheel"
+                                  : "fill-gray-300 text-gray-300"
                               }`}
                             />
                           ))}
                         </div>
-                        <p className="text-xs text-muted-foreground">{testimonial.timeAgo}</p>
+                        <p className="text-xs text-gray-500">{testimonial.timeAgo}</p>
                       </div>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed italic">
+                    <p className="text-sm text-gray-700 leading-relaxed italic">
                       "{testimonial.text}"
                     </p>
                   </Card>
