@@ -9,7 +9,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
-      {/* Left Side - Video with decorative elements */}
+      {/* Left Side - Video */}
       <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen bg-hero-teal overflow-hidden order-1 md:order-1">
         {/* Background Video */}
         <video
@@ -21,38 +21,6 @@ const Hero = () => {
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
-        
-        {/* Decorative shapes - responsive sizing */}
-        {/* Semi-circle gauge top left */}
-        <div className="absolute top-8 md:top-16 left-4 md:left-8 w-16 h-16 md:w-28 md:h-28">
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 rounded-full border-[4px] md:border-[6px] border-hero-teal opacity-60" 
-                 style={{ 
-                   clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)',
-                   borderStyle: 'dashed'
-                 }}></div>
-            <div className="absolute inset-1 md:inset-2 rounded-full border-[4px] md:border-[6px] border-hero-coral opacity-50" 
-                 style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
-          </div>
-        </div>
-        
-        {/* Stars on left side - responsive */}
-        <div className="absolute top-[22%] left-3 md:left-6">
-          <Star className="w-5 h-5 md:w-7 md:h-7 text-foreground fill-foreground" />
-        </div>
-        <div className="absolute top-[32%] left-3 md:left-6">
-          <Star className="w-4 h-4 md:w-5 md:h-5 text-foreground fill-foreground" />
-        </div>
-        <div className="absolute top-[48%] left-3 md:left-6 hidden md:block">
-          <Star className="w-7 h-7 text-foreground fill-foreground" />
-        </div>
-        
-        {/* Pink rectangles - responsive */}
-        <div className="absolute top-24 md:top-36 left-6 md:left-12 w-8 h-14 md:w-12 md:h-20 bg-hero-pink opacity-60 rounded-sm"></div>
-        <div className="absolute bottom-[35%] left-8 md:left-16 w-14 h-8 md:w-20 md:h-12 bg-hero-coral/50 opacity-70 rounded-sm"></div>
-        
-        {/* Large sparkle decoration - responsive */}
-        <Sparkles className="hidden md:block absolute top-[38%] left-[28%] w-20 h-20 text-white opacity-50" />
       </div>
 
       {/* Right Side - Content with gradient */}
