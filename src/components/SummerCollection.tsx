@@ -23,20 +23,20 @@ const collections = [
 
 const SummerCollection = () => {
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-soft relative overflow-hidden">
       {/* Decorative elements with parallax */}
       <div className="absolute top-20 left-10 w-48 h-48 bg-coral/10 rounded-full blur-3xl parallax-slow" />
       <div className="absolute bottom-40 right-10 w-64 h-64 bg-robin-egg-blue/10 rounded-full blur-3xl parallax-slower" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16 parallax-text">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Coleção Verão Zoke
           </h2>
-          <p className="text-xl md:text-2xl lg:text-3xl font-semibold mt-2 mb-4 text-gray-800">
+          <p className="text-xl md:text-2xl lg:text-3xl font-semibold mt-2 mb-4 bg-gradient-sunset bg-clip-text text-transparent">
             biquínis pra todos os seus dias de sol
           </p>
-          <p className="text-base md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             A coleção de verão da Zoke foi criada pra acompanhar todos os moods da estação: o dia de praia lotada com a galera, o pôr do sol mais reservado, a viagem de fim de semana... e aquela foto que você já sabe qual vai ser o close.
           </p>
         </div>
@@ -45,21 +45,21 @@ const SummerCollection = () => {
           {collections.map((collection, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-fade-in group"
+              className="relative overflow-hidden rounded-2xl shadow-medium hover:shadow-strong transition-all duration-500 hover:-translate-y-2 animate-fade-in group bg-card"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="h-48 md:h-56 overflow-hidden">
                 <img 
                   src={collection.image} 
                   alt={collection.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <div className="bg-white p-6 md:p-8">
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900">
+              <div className="p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground">
                   {collection.title}
                 </h3>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                   {collection.description}
                 </p>
               </div>
@@ -71,7 +71,7 @@ const SummerCollection = () => {
           <a href="#collections">
             <Button 
               size="lg" 
-              className="bg-orange-wheel hover:bg-orange-wheel/90 text-white text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-sunset hover:shadow-glow text-white text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full shadow-medium hover:shadow-strong transition-all duration-500 hover:scale-105"
             >
               VER TODOS OS MODELOS DE BIQUÍNI
             </Button>

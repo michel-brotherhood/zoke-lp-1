@@ -43,7 +43,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section id="faq" className="py-16 md:py-24 bg-gradient-soft relative overflow-hidden">
       {/* Decorative elements with parallax effect */}
       <div className="absolute top-20 right-10 w-40 h-40 bg-robin-egg-blue/10 rounded-full blur-3xl parallax-slow" />
       <div className="absolute bottom-32 left-10 w-56 h-56 bg-coral/10 rounded-full blur-3xl parallax-slower" />
@@ -51,12 +51,12 @@ const FAQ = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16 parallax-text">
           <div className="flex justify-center mb-4">
-            <HelpCircle className="w-12 h-12 md:w-16 md:h-16 text-robin-egg-blue" />
+            <HelpCircle className="w-12 h-12 md:w-16 md:h-16 text-primary" />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
             Perguntas Frequentes
           </h2>
-          <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Tire suas dúvidas sobre tamanhos, materiais e cuidados com seus biquínis Zoke
           </p>
         </div>
@@ -67,12 +67,12 @@ const FAQ = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-gradient-to-br from-antiflash-white to-light-cyan/30 rounded-2xl px-6 border-none shadow-soft hover:shadow-medium transition-all duration-300"
+                className="bg-card rounded-2xl px-6 border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300"
               >
-                <AccordionTrigger className="text-left text-base md:text-lg font-semibold text-gray-900 hover:text-robin-egg-blue py-6">
+                <AccordionTrigger className="text-left text-lg md:text-xl font-semibold text-foreground hover:text-primary transition-colors py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm md:text-base text-gray-700 pb-6 leading-relaxed">
+                <AccordionContent className="text-base md:text-lg text-muted-foreground leading-relaxed pb-5 whitespace-pre-line">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
