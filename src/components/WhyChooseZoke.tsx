@@ -35,9 +35,13 @@ const features = [
 
 const WhyChooseZoke = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-antiflash-white to-light-cyan">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-antiflash-white to-light-cyan relative overflow-hidden">
+      {/* Decorative parallax elements */}
+      <div className="absolute top-10 right-20 w-52 h-52 bg-orange-wheel/10 rounded-full blur-3xl parallax-slow" />
+      <div className="absolute bottom-20 left-20 w-64 h-64 bg-robin-egg-blue/10 rounded-full blur-3xl parallax-slower" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-12 md:mb-16 parallax-text">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
             Por que escolher biquínis Zoke neste verão?
           </h2>
