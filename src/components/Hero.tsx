@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { ChevronDown, Sparkles, Star, Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 
 const Hero = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,37 +22,37 @@ const Hero = () => {
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         
-        {/* Decorative shapes - matching reference */}
+        {/* Decorative shapes - responsive sizing */}
         {/* Semi-circle gauge top left */}
-        <div className="absolute top-16 left-8 w-28 h-28">
+        <div className="absolute top-8 md:top-16 left-4 md:left-8 w-16 h-16 md:w-28 md:h-28">
           <div className="relative w-full h-full">
-            <div className="absolute inset-0 rounded-full border-[6px] border-hero-teal opacity-60" 
+            <div className="absolute inset-0 rounded-full border-[4px] md:border-[6px] border-hero-teal opacity-60" 
                  style={{ 
                    clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)',
                    borderStyle: 'dashed'
                  }}></div>
-            <div className="absolute inset-2 rounded-full border-[6px] border-hero-coral opacity-50" 
+            <div className="absolute inset-1 md:inset-2 rounded-full border-[4px] md:border-[6px] border-hero-coral opacity-50" 
                  style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
           </div>
         </div>
         
-        {/* Stars on left side */}
-        <div className="absolute top-[22%] left-6">
-          <Star className="w-7 h-7 text-foreground fill-foreground" />
+        {/* Stars on left side - responsive */}
+        <div className="absolute top-[22%] left-3 md:left-6">
+          <Star className="w-5 h-5 md:w-7 md:h-7 text-foreground fill-foreground" />
         </div>
-        <div className="absolute top-[32%] left-6">
-          <Star className="w-5 h-5 text-foreground fill-foreground" />
+        <div className="absolute top-[32%] left-3 md:left-6">
+          <Star className="w-4 h-4 md:w-5 md:h-5 text-foreground fill-foreground" />
         </div>
-        <div className="absolute top-[48%] left-6">
+        <div className="absolute top-[48%] left-3 md:left-6 hidden md:block">
           <Star className="w-7 h-7 text-foreground fill-foreground" />
         </div>
         
-        {/* Pink rectangles */}
-        <div className="absolute top-36 left-12 w-12 h-20 bg-hero-pink opacity-60 rounded-sm"></div>
-        <div className="absolute bottom-[35%] left-16 w-20 h-12 bg-hero-coral/50 opacity-70 rounded-sm"></div>
+        {/* Pink rectangles - responsive */}
+        <div className="absolute top-24 md:top-36 left-6 md:left-12 w-8 h-14 md:w-12 md:h-20 bg-hero-pink opacity-60 rounded-sm"></div>
+        <div className="absolute bottom-[35%] left-8 md:left-16 w-14 h-8 md:w-20 md:h-12 bg-hero-coral/50 opacity-70 rounded-sm"></div>
         
-        {/* Large sparkle decoration */}
-        <Sparkles className="absolute top-[38%] left-[28%] w-20 h-20 text-white opacity-50" />
+        {/* Large sparkle decoration - responsive */}
+        <Sparkles className="hidden md:block absolute top-[38%] left-[28%] w-20 h-20 text-white opacity-50" />
       </div>
 
       {/* Right Side - Content with gradient */}
@@ -146,44 +146,44 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Decorative elements on right side - more like reference */}
-        <div className="absolute top-[18%] right-6">
-          <Star className="w-5 h-5 text-hero-coral fill-hero-coral" />
+        {/* Decorative elements on right side - responsive */}
+        <div className="absolute top-[18%] right-3 md:right-6">
+          <Star className="w-4 h-4 md:w-5 md:h-5 text-hero-coral fill-hero-coral" />
         </div>
-        <div className="absolute top-[26%] right-6">
-          <Star className="w-4 h-4 text-hero-coral fill-hero-coral" />
+        <div className="absolute top-[26%] right-3 md:right-6">
+          <Star className="w-3 h-3 md:w-4 md:h-4 text-hero-coral fill-hero-coral" />
         </div>
-        <div className="absolute top-[40%] right-6">
-          <Star className="w-5 h-5 text-hero-coral fill-hero-coral" />
+        <div className="absolute top-[40%] right-3 md:right-6">
+          <Star className="w-4 h-4 md:w-5 md:h-5 text-hero-coral fill-hero-coral" />
         </div>
-        <div className="absolute top-[58%] right-10">
+        <div className="absolute top-[58%] right-6 md:right-10 hidden md:block">
           <Star className="w-4 h-4 text-foreground fill-foreground" />
         </div>
-        <div className="absolute bottom-[28%] right-6">
-          <Star className="w-4 h-4 text-foreground fill-foreground" />
+        <div className="absolute bottom-[28%] right-3 md:right-6">
+          <Star className="w-3 h-3 md:w-4 md:h-4 text-foreground fill-foreground" />
         </div>
-        <div className="absolute bottom-[35%] right-6">
-          <Star className="w-5 h-5 text-foreground fill-foreground" />
+        <div className="absolute bottom-[35%] right-3 md:right-6">
+          <Star className="w-4 h-4 md:w-5 md:h-5 text-foreground fill-foreground" />
         </div>
 
-        {/* Dot pattern - vertical alignment like reference */}
-        <div className="absolute right-20 top-[32%] flex flex-col gap-2 opacity-50">
+        {/* Dot pattern - responsive */}
+        <div className="hidden lg:flex absolute right-16 xl:right-20 top-[32%] flex-col gap-1.5 md:gap-2 opacity-50">
           {[...Array(10)].map((_, i) => (
-            <div key={i} className="flex gap-2">
+            <div key={i} className="flex gap-1.5 md:gap-2">
               {[...Array(3)].map((_, j) => (
-                <div key={j} className="w-1 h-1 rounded-full bg-foreground"></div>
+                <div key={j} className="w-0.5 h-0.5 md:w-1 md:h-1 rounded-full bg-foreground"></div>
               ))}
             </div>
           ))}
         </div>
 
-        {/* Circle decoration bottom right */}
-        <div className="absolute bottom-16 right-28 w-36 h-36 rounded-full border-2 border-foreground/30 hidden md:flex items-center justify-center">
-          <Star className="w-14 h-14 text-foreground fill-foreground" />
+        {/* Circle decoration bottom right - responsive */}
+        <div className="absolute bottom-12 md:bottom-16 right-16 md:right-28 w-24 h-24 md:w-36 md:h-36 rounded-full border-2 border-foreground/30 hidden md:flex items-center justify-center">
+          <Star className="w-10 h-10 md:w-14 md:h-14 text-foreground fill-foreground" />
         </div>
 
-        {/* Sparkle bottom right */}
-        <Sparkles className="absolute bottom-[42%] right-[18%] w-12 h-12 text-white opacity-40" />
+        {/* Sparkle bottom right - responsive */}
+        <Sparkles className="hidden lg:block absolute bottom-[42%] right-[18%] w-8 h-8 md:w-12 md:h-12 text-white opacity-40" />
       </div>
 
       {/* Scroll Indicator */}
