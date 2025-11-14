@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WhyChooseZoke from "@/components/WhyChooseZoke";
 import SummerCollection from "@/components/SummerCollection";
+import ProductCarousel from "@/components/ProductCarousel";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Testimonials from "@/components/Testimonials";
@@ -18,6 +19,7 @@ const Index = () => {
       <Hero />
       <WhyChooseZoke />
       <SummerCollection />
+      <ProductCarousel />
       <About />
       <FAQ />
       <Testimonials />
