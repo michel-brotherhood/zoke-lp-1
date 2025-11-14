@@ -4,6 +4,7 @@ import WhyChooseZoke from "@/components/WhyChooseZoke";
 import SummerCollection from "@/components/SummerCollection";
 import Collections from "@/components/Collections";
 import About from "@/components/About";
+import FAQ from "@/components/FAQ";
 import Testimonials from "@/components/Testimonials";
 import StoresSection from "@/components/StoresSection";
 import ContactForm from "@/components/ContactForm";
@@ -20,6 +21,7 @@ const Index = () => {
       <SummerCollection />
       <Collections />
       <About />
+      <FAQ />
       <Testimonials />
       <StoresSection />
       <ContactForm />
