@@ -16,37 +16,37 @@ type ProductLine = {
 const productLines: ProductLine[] = [
   {
     category: "Argola",
-    subcategories: ["Borboleta", "Sunguini"],
+    subcategories: ["Argola_Borboleta", "Argola_Sunguini"],
     image: bikiniClassic,
     description: "Biquínis com detalhes de argola e amarrações elegantes"
   },
   {
     category: "Bojo",
-    subcategories: ["AsaDelta", "Borboleta", "Borboleta_Chemise_EstampaCoqueiro", "Borboleta_EstampaCoqueiro", "Sunguini", "Sunguini_EstampaFloral"],
+    subcategories: ["Bojo_AsaDelta", "Bojo_Borboleta", "Bojo_Borboleta_Chemise_EstampaCoqueiro", "Bojo_Borboleta_EstampaCoqueiro", "Bojo_Sunguini", "Bojo_Sunguini_EstampaFloral"],
     image: bikiniSummer,
     description: "Tops com bojo estruturado para mais sustentação e conforto"
   },
   {
     category: "Cortininha",
-    subcategories: ["Borboleta_EstampaOnça", "Laço"],
+    subcategories: ["Cortininha_Borboleta_EstampaOnça", "Cortininha_Laço"],
     image: bikiniNeutral,
     description: "O clássico cortininha com acabamentos modernos"
   },
   {
     category: "Cortinão",
-    subcategories: ["Borboleta_EstampaZebra", "HotPant"],
+    subcategories: ["Cortinão_Borboleta_EstampaZebra", "Cortinão_HotPant"],
     image: bikiniClassic,
     description: "Mais cobertura com estilo e personalidade"
   },
   {
     category: "Fixo",
-    subcategories: ["TiraFina"],
+    subcategories: ["Fixo_TiraFina"],
     image: bikiniSummer,
     description: "Modelos fixos práticos e elegantes"
   },
   {
     category: "Linha LUX",
-    subcategories: ["Borboleta_Peça", "Calça_Cortininha", "Cortininha_Lacinho", "Cortininhas_Borboletas", "TopFixo_TiraFina"],
+    subcategories: ["LUX_Borboleta_Peça", "LUX_Calça_Cortininha", "LUX_Cortininha_Lacinho", "LUX_Cortininhas_Borboletas", "LUX_TopFixo_TiraFina"],
     image: bikiniNeutral,
     description: "Nossa linha premium com acabamento luxuoso e exclusivo"
   },
@@ -58,19 +58,19 @@ const productLines: ProductLine[] = [
   },
   {
     category: "Meia Taça",
-    subcategories: ["Laço_EstampaColorida", "Sunguine_Trilobal", "Sunguini", "TiraFina_EstampaFloral"],
+    subcategories: ["MeiaTaça_Laço_EstampaColorida", "MeiaTaça_Sunguine_Trilobal", "MeiaTaça_Sunguini", "MeiaTaça_TiraFina_EstampaFloral"],
     image: bikiniSummer,
     description: "Meia taça para quem busca elegância e conforto"
   },
   {
     category: "Linha TQC",
-    subcategories: ["Amarração_EstampaFloral", "AsaDelta", "Borboleta", "Sunguini", "TiraFina", "TiraFina_EstampaColorida"],
+    subcategories: ["TQC_Amarração_EstampaFloral", "TQC_AsaDelta", "TQC_Borboleta", "TQC_Sunguini", "TQC_TiraFina", "TQC_TiraFina_EstampaColorida"],
     image: bikiniNeutral,
     description: "Tudo Que Cê precisa para arrasar na praia"
   },
   {
     category: "Top Ombro",
-    subcategories: ["AsaDelta_Chemise_EstampaFloral", "Borboleta_Trilobal", "Laço"],
+    subcategories: ["TopOmbro_AsaDelta_Chemise_EstampaFloral", "TopOmbro_Borboleta_Trilobal", "TopOmbro_Laço"],
     image: bikiniClassic,
     description: "Tops com alça de ombro para mais segurança"
   }
