@@ -30,9 +30,12 @@ const SummerCollection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16 parallax-text">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-            Coleção Verão Zoke – biquínis pra todos os seus dias de sol
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+            Coleção Verão Zoke
           </h2>
+          <p className="text-xl md:text-2xl lg:text-3xl font-semibold mt-2 mb-4 text-gray-800">
+            biquínis pra todos os seus dias de sol
+          </p>
           <p className="text-base md:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
             A coleção de verão da Zoke foi criada pra acompanhar todos os moods da estação: o dia de praia lotada com a galera, o pôr do sol mais reservado, a viagem de fim de semana... e aquela foto que você já sabe qual vai ser o close.
           </p>
