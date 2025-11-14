@@ -15,13 +15,13 @@ const Newsletter = () => {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-20 bg-gradient-sunset">
+    <section id="contact" className="py-12 md:py-20 bg-primary">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-primary-foreground">
             Fique Por Dentro
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 px-4">
+          <p className="text-base md:text-lg text-primary-foreground/90 mb-6 md:mb-8 px-4">
             Receba em primeira mão nossas novidades, lançamentos exclusivos e ofertas especiais
           </p>
           
