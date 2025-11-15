@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import collection1 from "@/assets/collection-beach-1.jpg";
 import collection2 from "@/assets/collection-beach-2.jpg";
@@ -31,11 +31,31 @@ const collections = [
 const FeaturedCollections = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const { elementRef, isVisible } = useScrollFade();
+  const [scrollY, setScrollY] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollProgress = -rect.top;
+        setScrollY(scrollProgress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section 
       id="featured" 
-      ref={elementRef}
+      ref={(node) => {
+        (elementRef as React.MutableRefObject<HTMLElement | null>).current = node;
+        (sectionRef as React.MutableRefObject<HTMLElement | null>).current = node;
+      }}
       className={`py-16 md:py-24 bg-gradient-to-b from-background to-secondary/10 scroll-fade-section ${isVisible ? 'visible' : ''}`}
     >
       <div className="container mx-auto px-6">
@@ -62,6 +82,9 @@ const FeaturedCollections = () => {
                   src={collection.image}
                   alt={collection.title}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  style={{
+                    transform: `translateY(${scrollY * 0.1 * (collection.id % 2 === 0 ? 1 : -1)}px)`
+                  }}
                 />
                 
                 {/* Gradient Overlay */}
