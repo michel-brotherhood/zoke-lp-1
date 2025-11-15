@@ -39,12 +39,12 @@ const Hero = () => {
       {/* Navigation - Overlay */}
       <nav className="relative z-50 pt-6 md:pt-8 px-6 md:px-12">
         <div className="flex items-center justify-between mb-8">
-          <img src={logo} alt="Zoke Logo" className="h-10 brightness-0 invert md:hidden" />
+          <div className="md:hidden" />
           
           {/* Mobile menu button */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white hover:opacity-70 transition-opacity"
+            className="md:hidden text-white hover:opacity-70 transition-opacity ml-auto"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
