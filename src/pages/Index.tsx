@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import FeaturedCollections from "@/components/FeaturedCollections";
 import WhyChooseZoke from "@/components/WhyChooseZoke";
 import SummerCollection from "@/components/SummerCollection";
 import ProductCarousel from "@/components/ProductCarousel";
@@ -14,9 +15,10 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => {
   return (
-    <div className="min-h-screen scroll-smooth">
+    <div className="min-h-screen">
       <Navbar />
       <Hero />
+      <FeaturedCollections />
       <WhyChooseZoke />
       <SummerCollection />
       <ProductCarousel />
