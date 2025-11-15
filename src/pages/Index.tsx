@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import FeaturedCollections from "@/components/FeaturedCollections";
 import WhyChooseZoke from "@/components/WhyChooseZoke";
 import SummerCollection from "@/components/SummerCollection";
 import ProductCarousel from "@/components/ProductCarousel";
@@ -18,7 +17,6 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <FeaturedCollections />
       <WhyChooseZoke />
       <SummerCollection />
       <ProductCarousel />
