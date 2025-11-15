@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/logo-white.svg";
+import logoColor from "@/assets/logo-color.svg";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const Hero = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logoModalOpen, setLogoModalOpen] = useState(false);
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col overflow-hidden">
@@ -85,20 +88,76 @@ const Hero = () => {
 
       {/* Main Content - Centered Overlay */}
       <div className="relative z-40 flex-1 flex flex-col justify-center items-start px-6 md:px-16 lg:px-24 py-12 md:py-0 max-w-7xl">
+        <button 
+          onClick={() => setLogoModalOpen(true)}
+          className="mb-6 md:mb-8 transition-transform hover:scale-105 duration-300 cursor-pointer"
+          aria-label="Ver logo em tela cheia"
+        >
+          <img 
+            src={logoColor} 
+            alt="Zoke Logo" 
+            className="h-16 sm:h-20 md:h-24 lg:h-28 brightness-0 invert drop-shadow-lg" 
+          />
+        </button>
+        
         <p className="text-sm md:text-base tracking-[0.4em] text-white/90 mb-4 uppercase font-light">
           MODA PRAIA
         </p>
         
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 md:mb-12 text-white leading-none tracking-tight">
-          VERÃO<span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">25</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-10 text-white leading-none tracking-tight">
+          VERÃO<span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">25</span>
         </h1>
 
-        <button className="bg-desert-sand hover:bg-orange-wheel text-foreground font-bold tracking-[0.3em] px-12 py-4 text-sm md:text-base uppercase transition-all duration-300 hover:scale-105 shadow-strong">
+        <button className="bg-desert-sand hover:bg-orange-wheel text-foreground font-bold tracking-[0.3em] px-8 md:px-12 py-3 md:py-4 text-xs md:text-base uppercase transition-all duration-300 hover:scale-105 shadow-strong">
           <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer">
             CONHEÇA
           </a>
         </button>
       </div>
+
+      {/* Logo Modal - Fullscreen Modern */}
+      <Dialog open={logoModalOpen} onOpenChange={setLogoModalOpen}>
+        <DialogContent className="max-w-5xl w-[95vw] h-[90vh] p-0 bg-gradient-to-br from-background via-background to-primary/5 border-2 border-primary/20">
+          <DialogTitle className="sr-only">Logo Zoke</DialogTitle>
+          <div className="flex flex-col items-center justify-center h-full p-8 md:p-12 gap-8">
+            <div className="flex-1 flex items-center justify-center w-full">
+              <img 
+                src={logoColor} 
+                alt="Zoke - Moda Praia" 
+                className="max-w-full max-h-full object-contain drop-shadow-2xl animate-scale-in"
+              />
+            </div>
+            
+            <div className="text-center space-y-6 max-w-2xl">
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight">
+                ZOKE MODA PRAIA
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground tracking-wide">
+                Descubra a coleção Verão 25 com estilo, conforto e qualidade.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <button 
+                  onClick={() => {
+                    setLogoModalOpen(false);
+                    window.open('https://api.whatsapp.com/send/?phone=5521971006480', '_blank');
+                  }}
+                  className="bg-desert-sand hover:bg-orange-wheel text-foreground font-bold tracking-[0.3em] px-10 py-4 text-sm uppercase transition-all duration-300 hover:scale-105 shadow-strong"
+                >
+                  FALE CONOSCO
+                </button>
+                <a 
+                  href="#collections"
+                  onClick={() => setLogoModalOpen(false)}
+                  className="bg-transparent border-2 border-primary hover:bg-primary/10 text-foreground font-bold tracking-[0.3em] px-10 py-4 text-sm uppercase transition-all duration-300 hover:scale-105 inline-block"
+                >
+                  VER GALERIA
+                </a>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Scroll Indicator */}
       <a
