@@ -1,4 +1,5 @@
 import { Waves, Heart, Sparkles } from "lucide-react";
+import { useScrollFade } from "@/hooks/useScrollFade";
 
 const features = [
   {
@@ -19,8 +20,14 @@ const features = [
 ];
 
 const About = () => {
+  const { elementRef, isVisible } = useScrollFade();
+
   return (
-    <section id="about" className="py-12 md:py-20 bg-background">
+    <section 
+      id="about" 
+      ref={elementRef}
+      className={`py-12 md:py-20 bg-background scroll-fade-section ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground animate-fade-in">

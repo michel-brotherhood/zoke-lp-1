@@ -1,5 +1,6 @@
 import { CheckCircle2, TrendingUp, Palette, Droplet, Layers, MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollFade } from "@/hooks/useScrollFade";
 
 const features = [
   {
@@ -36,13 +37,17 @@ const features = [
 
 const WhyChooseZoke = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const { elementRef: fadeRef, isVisible: isFadeVisible } = useScrollFade();
 
   return (
     <section 
-      ref={ref as React.RefObject<HTMLElement>}
-      className={`py-16 md:py-24 bg-gradient-soft relative overflow-hidden transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      ref={(node) => {
+        (ref as React.MutableRefObject<HTMLElement | null>).current = node;
+        (fadeRef as React.MutableRefObject<HTMLElement | null>).current = node;
+      }}
+      className={`py-16 md:py-24 bg-gradient-soft relative overflow-hidden scroll-fade-section ${
+        isFadeVisible ? 'visible' : ''
+      } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
       {/* Decorative elements */}
       <div className="absolute top-10 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl parallax-slow" />
