@@ -127,7 +127,7 @@ const Hero = () => {
       <div className="relative z-40 flex-1 flex flex-col justify-center items-start px-6 md:px-16 lg:px-24 py-12 md:py-0 max-w-7xl">
         <button 
           onClick={() => setLogoModalOpen(true)}
-          className="mb-6 md:mb-8 transition-transform hover:scale-105 duration-300 cursor-pointer"
+          className="mb-6 md:mb-8 transition-transform hover:scale-105 duration-300 cursor-pointer hero-animate-logo"
           aria-label="Ver logo em tela cheia"
         >
           <img 
@@ -137,19 +137,21 @@ const Hero = () => {
           />
         </button>
         
-        <p className="text-sm md:text-base tracking-[0.4em] text-white/90 mb-4 uppercase font-light">
+        <p className="text-sm md:text-base tracking-[0.4em] text-white/90 mb-4 uppercase font-light hero-animate-subtitle">
           MODA PRAIA
         </p>
         
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-10 text-white leading-none tracking-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-10 text-white leading-none tracking-tight hero-animate-title">
           VERÃO<span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">25</span>
         </h1>
 
-        <button className="hero-button">
-          <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer">
-            CONHEÇA
-          </a>
-        </button>
+        <div className="hero-animate-button">
+          <button className="hero-button">
+            <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer">
+              CONHEÇA
+            </a>
+          </button>
+        </div>
       </div>
 
       {/* Logo Modal - Fullscreen Modern */}
