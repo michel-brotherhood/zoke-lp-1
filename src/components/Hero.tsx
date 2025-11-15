@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { ChevronDown, Sparkles, Star, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.svg";
 
 const Hero = () => {
@@ -23,12 +23,19 @@ const Hero = () => {
         </video>
       </div>
 
-      {/* Right Side - Content with modern gradient */}
-      <div className="relative w-full md:w-1/2 min-h-[60vh] md:h-screen bg-gradient-to-br from-seashell via-almond to-desert-sand flex flex-col order-2 md:order-2 overflow-hidden">
-        {/* Modern decorative background elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-hero-coral/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-hero-teal/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-orange-wheel/5 rounded-full blur-2xl parallax-slow"></div>
+      {/* Right Side - Content - revamped modern design */}
+      <div className="relative w-full md:w-1/2 min-h-[60vh] md:h-screen bg-gradient-to-br from-seashell via-almond to-desert-sand flex flex-col order-2 md:order-2 overflow-hidden isolate">
+        {/* Accent gradient bar on the edge */}
+        <div className="absolute top-0 right-0 h-full w-2 md:w-3 bg-gradient-to-b from-hero-coral via-orange-wheel to-hero-teal drop-shadow-lg"></div>
+        {/* Subtle dot grid overlay */}
+        <svg className="absolute inset-0 opacity-20 text-hero-teal" aria-hidden>
+          <defs>
+            <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.5" fill="currentColor" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dotGrid)" />
+        </svg>
         {/* Navigation - integrated into hero */}
         <nav className="relative z-50 pt-4 md:pt-6 px-4 md:px-8">
           <div className="flex items-center justify-between mb-4 md:mb-8">
@@ -45,7 +52,7 @@ const Hero = () => {
           </div>
           
           {/* Desktop menu */}
-          <div className="hidden md:flex gap-8 text-foreground font-medium tracking-wide text-sm">
+          <div className="hidden md:flex gap-6 text-foreground font-medium tracking-wide text-sm bg-background/40 backdrop-blur-md border border-border/50 rounded-full px-5 py-2 shadow-sm">
             <a href="#home" className="hover:opacity-70 transition-opacity">INÍCIO</a>
             <a href="#about" className="hover:opacity-70 transition-opacity">SOBRE</a>
             <a href="#collections" className="hover:opacity-70 transition-opacity">GALERIA</a>
@@ -54,7 +61,7 @@ const Hero = () => {
           
           {/* Mobile menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg">
+            <div className="md:hidden absolute top-full left-0 right-0 bg-background/90 backdrop-blur-md border-b border-border shadow-lg rounded-b-xl">
               <div className="flex flex-col gap-4 p-4">
                 <a 
                   href="#home" 
@@ -89,68 +96,47 @@ const Hero = () => {
           )}
         </nav>
 
-        {/* Main Content */}
         <div className="flex-1 flex flex-col justify-center px-4 md:px-8 lg:px-16 py-8 md:py-12">
-          <p className="text-xs md:text-sm tracking-[0.3em] text-foreground mb-3 md:mb-4 uppercase font-light">
-            Coleção 2025
-          </p>
-          
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-tight">
-            Seja Você,<br />
-            Seja Bonita,<br />
-            <span className="font-light">Seja Zoke</span>
-          </h1>
-          
-          <p className="text-sm md:text-base lg:text-lg text-foreground/80 mb-2 md:mb-3 tracking-wide uppercase font-light">
-            Moda praia e fitness
-          </p>
-          
-          <p className="text-xs md:text-sm lg:text-base text-foreground font-normal mb-6 md:mb-8">
-            Entrega para todo o Brasil 🇧🇷
-          </p>
+          <div className="relative max-w-xl md:max-w-2xl bg-background/50 backdrop-blur-md border border-border/50 rounded-3xl shadow-xl p-6 md:p-8 animate-enter">
+            {/* subtle light flare */}
+            <div className="pointer-events-none absolute -top-6 -right-6 w-24 h-24 rounded-full bg-hero-coral/20 blur-2xl"></div>
 
-          <div className="flex justify-start">
-            <GradientButton variant="pink" asChild>
-              <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base">
-                Falar com Representante
-              </a>
-            </GradientButton>
+            <p className="text-xs md:text-sm tracking-[0.3em] text-foreground mb-3 md:mb-4 uppercase font-light">
+              Coleção 2025
+            </p>
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-foreground leading-tight">
+              Seja Você,<br />
+              Seja Bonita,<br />
+              <span className="font-light">Seja Zoke</span>
+            </h1>
+            
+            <p className="text-sm md:text-base lg:text-lg text-foreground/80 mb-2 md:mb-3 tracking-wide uppercase font-light">
+              Moda praia e fitness
+            </p>
+            
+            <p className="text-xs md:text-sm lg:text-base text-foreground font-normal mb-6 md:mb-8">
+              Entrega para todo o Brasil 🇧🇷
+            </p>
+
+            <div className="flex justify-start">
+              <GradientButton variant="pink" asChild>
+                <a href="https://api.whatsapp.com/send/?phone=5521971006480" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base">
+                  Falar com Representante
+                </a>
+              </GradientButton>
+            </div>
           </div>
         </div>
 
-        {/* Modern floating decorative elements */}
-        <div className="absolute top-[20%] right-8 md:right-12">
-          <div className="relative">
-            <Star className="w-6 h-6 md:w-8 md:h-8 text-hero-coral fill-hero-coral drop-shadow-lg parallax-text" />
-            <div className="absolute inset-0 w-6 h-6 md:w-8 md:h-8 bg-hero-coral/30 blur-md rounded-full"></div>
-          </div>
+        {/* Modern decorative shapes - new style */}
+        <div className="pointer-events-none absolute inset-0">
+          {/* Soft gradient orbs */}
+          <div className="absolute -top-10 -right-8 w-72 h-72 bg-hero-coral/25 blur-3xl rounded-full animate-pulse" />
+          <div className="absolute bottom-[-80px] right-24 w-80 h-80 bg-hero-teal/20 blur-3xl rounded-full" />
+          {/* Fine ring */}
+          <div className="hidden lg:block absolute bottom-20 right-24 w-44 h-44 rounded-full border border-orange-wheel/40 backdrop-blur-sm" />
         </div>
-        
-        <div className="absolute top-[45%] right-6 md:right-10">
-          <div className="relative">
-            <Star className="w-5 h-5 md:w-7 md:h-7 text-orange-wheel fill-orange-wheel drop-shadow-lg parallax-slow" />
-            <div className="absolute inset-0 w-5 h-5 md:w-7 md:h-7 bg-orange-wheel/30 blur-md rounded-full"></div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-[30%] right-12 md:right-16">
-          <div className="relative">
-            <Sparkles className="w-7 h-7 md:w-10 md:h-10 text-hero-teal drop-shadow-lg parallax-slower" />
-            <div className="absolute inset-0 w-7 h-7 md:w-10 md:h-10 bg-hero-teal/20 blur-lg rounded-full"></div>
-          </div>
-        </div>
-
-        {/* Modern geometric shapes */}
-        <div className="hidden lg:block absolute bottom-16 right-20 w-32 h-32 border-2 border-hero-coral/30 rounded-full backdrop-blur-sm bg-background/5">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-20 h-20 border border-hero-coral/50 rounded-full"></div>
-          </div>
-        </div>
-
-        {/* Floating particles */}
-        <div className="absolute top-[35%] right-[25%] w-2 h-2 bg-hero-coral rounded-full opacity-60 parallax-text"></div>
-        <div className="absolute top-[55%] right-[15%] w-1.5 h-1.5 bg-orange-wheel rounded-full opacity-40 parallax-slow"></div>
-        <div className="absolute bottom-[40%] right-[30%] w-1 h-1 bg-hero-teal rounded-full opacity-50 parallax-slower"></div>
       </div>
 
       {/* Scroll Indicator */}
