@@ -141,8 +141,8 @@ const Hero = () => {
           MODA PRAIA
         </p>
         
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-10 text-white leading-none tracking-tight hero-animate-title">
-          VERÃO<span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">25</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-10 leading-none tracking-tight hero-animate-title">
+          <span className="hero-title-shimmer">VERÃO<span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">25</span></span>
         </h1>
 
         <div className="hero-animate-button">

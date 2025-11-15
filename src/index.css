@@ -227,6 +227,32 @@ html {
   animation: hero-fade-up 1s cubic-bezier(0.4, 0, 0.2, 1) 1.3s both;
 }
 
+/* Shimmer Effect for Hero Title */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.hero-title-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    #F4E8E2 50%,
+    #ffffff 60%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
 /* Hero Button Skew Effect */
 .hero-button {
   padding: 1em 2em;
@@ -241,15 +267,18 @@ html {
   font-size: 15px;
   position: relative;
   overflow: hidden;
-  outline: 2px solid #F4E8E2;
+  outline: 3px solid #F4E8E2;
+  outline-offset: -3px;
   background: transparent;
+  box-shadow: 0 0 0 1px rgba(244, 232, 226, 0.2);
 }
 
 .hero-button:hover {
   color: #ffffff;
   transform: scale(1.1);
-  outline: 2px solid hsl(var(--primary));
-  box-shadow: 4px 5px 17px -4px hsl(var(--primary) / 0.6);
+  outline: 3px solid hsl(var(--primary));
+  outline-offset: -3px;
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.4), 4px 5px 17px -4px hsl(var(--primary) / 0.6);
 }
 
 .hero-button::before {
