@@ -29,7 +29,7 @@ const Hero = () => {
       {/* Navigation - Overlay */}
       <nav className="relative z-50 pt-6 md:pt-8 px-6 md:px-12">
         <div className="flex items-center justify-between mb-8">
-          <img src={logo} alt="Zoke Logo" className="h-10 md:h-14 brightness-0 invert" />
+          <img src={logo} alt="Zoke Logo" className="h-10 brightness-0 invert md:hidden" />
           
           {/* Mobile menu button */}
           <button 
