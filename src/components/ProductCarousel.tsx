@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -220,6 +221,12 @@ const ProductCarousel = () => {
             align: "start",
             loop: true,
           }}
+          plugins={[
+            Autoplay({
+              delay: 3000,
+              stopOnInteraction: true,
+            }),
+          ]}
           className="w-full max-w-7xl mx-auto"
         >
           <CarouselContent className="-ml-2 md:-ml-4">

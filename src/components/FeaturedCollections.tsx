@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, MouseEvent } from "react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 import collection1 from "@/assets/collection-beach-1.jpg";
 import collection2 from "@/assets/collection-beach-2.jpg";
@@ -49,6 +49,26 @@ const FeaturedCollections = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const createRipple = (event: MouseEvent<HTMLDivElement>) => {
+    const card = event.currentTarget;
+    const ripple = document.createElement('span');
+    const rect = card.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = event.clientX - rect.left - size / 2;
+    const y = event.clientY - rect.top - size / 2;
+
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    ripple.classList.add('ripple');
+
+    card.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  };
+
   return (
     <section 
       id="featured" 
@@ -75,6 +95,7 @@ const FeaturedCollections = () => {
               className="group relative overflow-hidden rounded-lg cursor-pointer"
               onMouseEnter={() => setHoveredId(collection.id)}
               onMouseLeave={() => setHoveredId(null)}
+              onClick={createRipple}
             >
               {/* Image Container */}
               <div className="relative h-[400px] md:h-[500px] overflow-hidden">
