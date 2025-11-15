@@ -236,19 +236,19 @@ html {
   letter-spacing: 5px;
   text-transform: uppercase;
   cursor: pointer;
-  color: hsl(var(--primary));
+  color: #F4E8E2;
   transition: all 1000ms;
   font-size: 15px;
   position: relative;
   overflow: hidden;
-  outline: 2px solid hsl(var(--primary));
+  outline: 2px solid #F4E8E2;
   background: transparent;
 }
 
 .hero-button:hover {
   color: #ffffff;
   transform: scale(1.1);
-  outline: 2px solid hsl(var(--primary) / 0.7);
+  outline: 2px solid hsl(var(--primary));
   box-shadow: 4px 5px 17px -4px hsl(var(--primary) / 0.6);
 }
 
