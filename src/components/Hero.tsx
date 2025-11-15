@@ -4,6 +4,7 @@ import logo from "@/assets/logo-white.svg";
 import logoColor from "@/assets/logo-color.svg";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const Hero = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,6 +35,9 @@ const Hero = () => {
         
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+        
+        {/* Floating Particles */}
+        <FloatingParticles />
       </div>
 
       {/* Navigation - Overlay */}
@@ -142,7 +146,10 @@ const Hero = () => {
         </p>
         
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-10 leading-none tracking-tight hero-animate-title">
-          <span className="hero-title-shimmer">VERÃO<span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">25</span></span>
+          <span className="hero-title-shimmer inline-flex items-baseline gap-1">
+            VERÃO
+            <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">25</span>
+          </span>
         </h1>
 
         <div className="hero-animate-button">
