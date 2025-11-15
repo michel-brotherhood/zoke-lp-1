@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useScrollFade } from "@/hooks/useScrollFade";
 import collection1 from "@/assets/collection-beach-1.jpg";
 import collection2 from "@/assets/collection-beach-2.jpg";
 import collection3 from "@/assets/collection-beach-3.jpg";
@@ -29,9 +30,14 @@ const collections = [
 
 const FeaturedCollections = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const { elementRef, isVisible } = useScrollFade();
 
   return (
-    <section id="featured" className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/10">
+    <section 
+      id="featured" 
+      ref={elementRef}
+      className={`py-16 md:py-24 bg-gradient-to-b from-background to-secondary/10 scroll-fade-section ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">

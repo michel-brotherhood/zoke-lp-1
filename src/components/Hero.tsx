@@ -145,10 +145,10 @@ const Hero = () => {
           MODA PRAIA
         </p>
         
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-10 leading-none tracking-tight hero-animate-title">
-          <span className="hero-title-shimmer inline-flex items-baseline gap-1">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-10 leading-tight tracking-tight hero-animate-title">
+          <span className="hero-title-shimmer hero-title-glitch block" data-text="VERÃO25">
             VERÃO
-            <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">25</span>
+            <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl ml-2">25</span>
           </span>
         </h1>
 

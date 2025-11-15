@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollFade } from "@/hooks/useScrollFade";
 import { MessageCircle, ZoomIn, X } from "lucide-react";
 
 // Import all product images
@@ -192,13 +193,17 @@ const ProductCarousel = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const { ref, isVisible } = useScrollAnimation();
+  const { elementRef: fadeRef, isVisible: isFadeVisible } = useScrollFade();
 
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
-      className={`py-16 md:py-24 bg-background relative transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      ref={(node) => {
+        (ref as React.MutableRefObject<HTMLElement | null>).current = node;
+        (fadeRef as React.MutableRefObject<HTMLElement | null>).current = node;
+      }}
+      className={`py-16 md:py-24 bg-background relative scroll-fade-section ${
+        isFadeVisible ? 'visible' : ''
+      } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
