@@ -182,3 +182,59 @@ All colors MUST be HSL.
 .animate-slide-in-right {
   animation: slide-in-right 0.3s ease-out forwards;
 }
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Button Skew Effect */
+.hero-button {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: hsl(var(--primary));
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid hsl(var(--primary));
+  background: transparent;
+}
+
+.hero-button:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+  outline: 2px solid hsl(var(--primary) / 0.7);
+  box-shadow: 4px 5px 17px -4px hsl(var(--primary) / 0.6);
+}
+
+.hero-button::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: hsl(var(--primary));
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.hero-button:hover::before {
+  width: 250%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
